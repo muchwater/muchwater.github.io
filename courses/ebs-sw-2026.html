@@ -7,6 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Google Calendar Appointment Scheduling -->
+  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -30,13 +33,35 @@
     .hero-desc { font-size: 0.95rem; font-weight: 300; color: var(--ink-mid); max-width: 600px; margin-bottom: 8px; }
     .hero-note { font-size: 0.82rem; color: var(--ink-light); }
 
+    .booking-card { background: linear-gradient(135deg, #ffffff 0%, #f3f8fc 100%); border: 1px solid var(--border); border-radius: 14px; padding: 24px 24px 20px; margin-top: 32px; }
+    .booking-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+    .booking-title { font-family: var(--serif); font-size: 1.35rem; letter-spacing: -0.01em; color: var(--ink); }
+    .booking-desc { font-size: 0.88rem; color: var(--ink-mid); margin-bottom: 16px; }
+    .booking-btn-wrap { display: flex; }
+    .booking-btn-wrap button { cursor: pointer; }
+    .booking-notice { list-style: none; margin: 18px 0 0; padding: 14px 16px; background: rgba(255,255,255,0.6); border: 1px dashed var(--border); border-radius: 8px; }
+    .booking-notice li { position: relative; font-size: 0.78rem; line-height: 1.6; color: var(--ink-light); padding-left: 16px; margin-bottom: 5px; }
+    .booking-notice li:last-child { margin-bottom: 0; }
+    .booking-notice li::before { content: "•"; position: absolute; left: 2px; color: var(--accent); }
+    .booking-notice li strong { color: var(--ink-mid); font-weight: 600; }
+    .booking-notice .notice-label { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 8px; }
+
     .section-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-light); margin: 56px 0 8px; }
     .section-title { font-family: var(--serif); font-size: 1.7rem; letter-spacing: -0.02em; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
 
-    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px 22px; margin-bottom: 16px; transition: border-color 0.2s; }
-    .card:hover { border-color: #b8cee0; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 16px; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; }
+    .card:hover { border-color: #b8cee0; box-shadow: 0 6px 20px -8px rgba(42,92,143,0.18); transform: translateY(-2px); }
     .card.common { border-left: 3px solid var(--accent); }
-    .card-title { font-weight: 700; font-size: 1rem; margin-bottom: 12px; }
+
+    .card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+    .region-badge { display: inline-flex; align-items: center; padding: 3px 11px; border-radius: 999px; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.02em; background: var(--accent-light); color: var(--accent); border: 1px solid #cfe0ee; white-space: nowrap; }
+    .card-title { font-weight: 700; font-size: 1.05rem; color: var(--ink); }
+
+    .card-meta { font-size: 0.82rem; display: flex; flex-wrap: wrap; gap: 7px 8px; margin-bottom: 16px; }
+    .card-meta .meta-item { display: inline-flex; align-items: center; gap: 5px; padding: 4px 11px; border-radius: 7px; background: #faf8f4; border: 1px solid var(--border); }
+    .card-meta .meta-icon { width: 13px; height: 13px; flex-shrink: 0; color: var(--ink-light); }
+    .card-meta .meta-label { color: var(--ink-light); font-weight: 500; }
+    .card-meta .meta-val { color: var(--ink); font-weight: 600; }
 
     table.sessions { width: 100%; border-collapse: collapse; }
     table.sessions th { text-align: left; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-light); padding: 4px 10px 8px 0; border-bottom: 1px solid var(--border); }
@@ -46,6 +71,9 @@
     .tbd { color: var(--ink-light); font-style: italic; font-size: 0.82rem; }
     a.join-btn { display: inline-block; padding: 4px 14px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; background: var(--accent); color: #fff; text-decoration: none; white-space: nowrap; transition: background 0.2s; }
     a.join-btn:hover { background: #1e4a75; }
+    .link-cell { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+    a.mat-btn { display: inline-block; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; background: var(--accent-light); color: var(--accent); border: 1px solid #cfe0ee; text-decoration: none; white-space: nowrap; transition: background 0.2s, border-color 0.2s; }
+    a.mat-btn:hover { background: #dceaf6; border-color: #b8cee0; }
 
     footer { text-align: center; padding: 48px 24px; font-size: 0.78rem; color: var(--ink-light); border-top: 1px solid var(--border); margin-top: 60px; }
     @media (max-width: 520px) {
@@ -68,6 +96,37 @@
       <p class="hero-note">각 회차의 링크는 일정 확정 후 업데이트됩니다.</p>
     </section>
 
+    <div class="booking-card">
+      <div class="booking-head">
+        <h2 class="booking-title">팀별 멘토링 예약</h2>
+      </div>
+      <p class="booking-desc">아래 버튼을 눌러 팀별 멘토링 일정을 예약하세요.</p>
+      <div class="booking-btn-wrap">
+        <!-- Google Calendar Appointment Scheduling begin -->
+        <script>
+        (function() {
+          var target = document.currentScript;
+          window.addEventListener('load', function() {
+            calendar.schedulingButton.load({
+              url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3oB1NclRlL7LdfkgI_IMxyxoE8BUQzjDfn-SVGrXmbmNj6KOV_KmWPDsL2IXhUQsMlJk4mDcBo?gv=true',
+              color: '#039BE5',
+              label: '일정 예약',
+              target,
+            });
+          });
+        })();
+        </script>
+        <!-- end Google Calendar Appointment Scheduling -->
+      </div>
+      <ul class="booking-notice">
+        <span class="notice-label">예약 안내</span>
+        <li>예약은 <strong>선착순</strong>으로 마감됩니다.</li>
+        <li>팀원 누구나 예약할 수 있으나, <strong>팀당 주 1회 이내</strong>로 신청해 주세요.</li>
+        <li>팀별 멘토링 2회는 <strong>7월 11일 이전</strong>까지 모두 완료되어야 합니다.</li>
+        <li>2회를 한 번에 미리 예약해도 되고 필요할 때 나눠 예약해도 됩니다. 다만 <strong>6월 말까지 예약이 없으면</strong> 멘토가 일정을 임의로 배정할 수 있습니다.</li>
+      </ul>
+    </div>
+
     <p class="section-label">Common Sessions</p>
     <h2 class="section-title">통합 세션</h2>
     <div id="common-sessions"></div>
@@ -87,35 +146,37 @@
     // datetime: 표시될 날짜·시간 문자열 (예: "2026-07-01 (수) 19:00")
     // link:     화상 회의 링크 (예: "https://zoom.us/j/...") — 비워두면 "미정"으로 표시
     const commonSessions = [
-      { name: "OT (오리엔테이션)", datetime: "2026-06-14 (일) 16:00–17:00", link: "https://meet.google.com/rfz-gozf-xmc" },
+      { name: "OT (오리엔테이션)", datetime: "2026-06-14 (일) 16:00–17:00", link: "",
+        slides: "https://drive.google.com/file/d/1qakYBu41l7rVYGFMxao2Gy4lTRnKjsqN/view?usp=drive_link",
+        recording: "https://drive.google.com/file/d/1kltk73oHZT92etE6iesDpf8a5X58t6xC/view?usp=drive_link" },
     ];
 
     const teams = [
-      { name: "시너지", sessions: [
+      { name: "시너지", region: "경북", leader: "김준서", school: "포항장성고등학교", sessions: [
         { no: "1회차", datetime: "", link: "" },
         { no: "2회차", datetime: "", link: "" },
       ]},
-      { name: "새결", sessions: [
+      { name: "새결", region: "경남", leader: "황지후", sessions: [
+        { no: "1회차", datetime: "2026-06-14 (일) 22:00–23:00", link: "https://meet.google.com/hzd-wgmz-gnj" },
+        { no: "2회차", datetime: "", link: "" },
+      ]},
+      { name: "츄르라는단어에각성한고양이의동공", region: "경기", leader: "유준호", school: "선린인터넷고등학교", sessions: [
         { no: "1회차", datetime: "", link: "" },
         { no: "2회차", datetime: "", link: "" },
       ]},
-      { name: "츄르라는단어에각성한고양이의동공", sessions: [
+      { name: "불꽃카리스마 민호", region: "충남", leader: "김민지", school: "천안여자상업고등학교", sessions: [
         { no: "1회차", datetime: "", link: "" },
         { no: "2회차", datetime: "", link: "" },
       ]},
-      { name: "불꽃카리스마 민호", sessions: [
+      { name: "쎄리고", region: "경남", leader: "성현규", school: "진해중앙고등학교", sessions: [
         { no: "1회차", datetime: "", link: "" },
         { no: "2회차", datetime: "", link: "" },
       ]},
-      { name: "쎄리고", sessions: [
-        { no: "1회차", datetime: "", link: "" },
+      { name: "임possible", region: "울산", leader: "전준표", school: "대현고등학교", sessions: [
+        { no: "1회차", datetime: "2026-06-17 (수) 16:00–17:00", link: "https://meet.google.com/whc-dfxp-gsu" },
         { no: "2회차", datetime: "", link: "" },
       ]},
-      { name: "임possible", sessions: [
-        { no: "1회차", datetime: "", link: "" },
-        { no: "2회차", datetime: "", link: "" },
-      ]},
-      { name: "LCD", sessions: [
+      { name: "LCD", region: "대구", leader: "구도현", school: "경북기계공업고등학교", sessions: [
         { no: "1회차", datetime: "", link: "" },
         { no: "2회차", datetime: "", link: "" },
       ]},
@@ -130,9 +191,13 @@
         <tr>
           <td class="session-no">${esc(s[labelKey])}</td>
           <td>${s.datetime ? esc(s.datetime) : '<span class="tbd">일정 미정</span>'}</td>
-          <td style="text-align:right;">${s.link
-            ? `<a class="join-btn" href="${esc(s.link)}" target="_blank" rel="noopener">회의 참여</a>`
-            : '<span class="tbd">링크 미정</span>'}</td>
+          <td style="text-align:right;">${(() => {
+            const btns = [];
+            if (s.link) btns.push(`<a class="join-btn" href="${esc(s.link)}" target="_blank" rel="noopener">회의 참여</a>`);
+            if (s.slides) btns.push(`<a class="mat-btn" href="${esc(s.slides)}" target="_blank" rel="noopener">강의 슬라이드</a>`);
+            if (s.recording) btns.push(`<a class="mat-btn" href="${esc(s.recording)}" target="_blank" rel="noopener">강의 녹화본</a>`);
+            return btns.length ? `<div class="link-cell">${btns.join("")}</div>` : '<span class="tbd">링크 미정</span>';
+          })()}</td>
         </tr>`).join("");
     }
     function tableHTML(sessions, labelKey, labelHead) {
@@ -146,9 +211,23 @@
     document.getElementById("common-sessions").innerHTML =
       `<div class="card common">${tableHTML(commonSessions, "name", "세션")}</div>`;
 
+    const ICON_LEADER = '<svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
+    const ICON_SCHOOL = '<svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1 2 2 6 2s6-1 6-2v-5"/></svg>';
+
+    function teamMeta(t) {
+      const items = [];
+      if (t.leader) items.push(`<span class="meta-item">${ICON_LEADER}<span class="meta-label">팀장</span><span class="meta-val">${esc(t.leader)}</span></span>`);
+      if (t.school) items.push(`<span class="meta-item">${ICON_SCHOOL}<span class="meta-label">학교</span><span class="meta-val">${esc(t.school)}</span></span>`);
+      return items.length ? `<div class="card-meta">${items.join("")}</div>` : "";
+    }
+
     document.getElementById("team-sessions").innerHTML = teams.map(t => `
       <div class="card">
-        <div class="card-title">${esc(t.name)}</div>
+        <div class="card-head">
+          ${t.region ? `<span class="region-badge">${esc(t.region)}</span>` : ""}
+          <span class="card-title">${esc(t.name)}</span>
+        </div>
+        ${teamMeta(t)}
         ${tableHTML(t.sessions, "no", "회차")}
       </div>`).join("");
   </script>
