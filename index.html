@@ -48,6 +48,9 @@
     .hero-link.secondary { background: var(--surface); color: var(--ink-mid); border: 1px solid var(--border); }
     .hero-link.secondary:hover { border-color: var(--accent); color: var(--accent); }
 
+    .hero-bio a, .edu-school a, .edu-detail-value a, .entry-affiliation a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(42,92,143,0.3); transition: border-color 0.2s; }
+    .hero-bio a:hover, .edu-school a:hover, .edu-detail-value a:hover, .entry-affiliation a:hover { border-color: var(--accent); }
+
     .section-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 8px; }
     .section-title { font-family: var(--serif); font-size: 1.9rem; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 32px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
 
@@ -128,8 +131,10 @@
       <h1 class="hero-name">Junhyeong <em>Jeon</em></h1>
       <p class="hero-alias">also known as <span>Walter Jeon</span></p>
       <p class="hero-bio">
-        I am an incoming M.S. student at the <strong>Kim Jaechul Graduate School of AI (KAIST AI)</strong>,
-        starting in August 2026 under Prof. Dongsu Han at the INA Lab.
+        I am an incoming M.S. student at the
+        <strong><a href="https://gsai.kaist.ac.kr/" target="_blank" rel="noopener">Kim Jaechul Graduate School of AI (KAIST AI)</a></strong>,
+        starting in August 2026 under Prof. Dongsu Han at the
+        <a href="https://ina.kaist.ac.kr/" target="_blank" rel="noopener">INA Lab</a>.
         I am completing my B.S. in Computer Science at KAIST (Korea Advanced Institute of Science and Technology),
         with a double major in Electrical Engineering and a minor in Science &amp; Technology Policy.
         I am broadly interested in systems research &mdash; particularly LLM inference optimization,
@@ -149,7 +154,7 @@
       <div class="edu-main" style="margin-bottom:16px;">
         <div class="edu-main-header">
           <div>
-            <div class="edu-school">Kim Jaechul Graduate School of AI (KAIST AI)</div>
+            <div class="edu-school"><a href="https://gsai.kaist.ac.kr/" target="_blank" rel="noopener">Kim Jaechul Graduate School of AI (KAIST AI)</a></div>
             <div class="edu-school-sub">KAIST &middot; Daejeon, South Korea</div>
           </div>
           <div class="edu-date">Aug 2026 &ndash; Present (incoming)</div>
@@ -157,11 +162,11 @@
         <div class="edu-details">
           <div>
             <div class="edu-detail-label">Degree</div>
-            <div class="edu-detail-value"><strong>M.S. in Artificial Intelligence</strong><br>Admitted &middot; entering Aug 2026</div>
+            <div class="edu-detail-value"><strong>Master of Science in Artificial Intelligence</strong><br>Admitted &middot; entering Aug 2026</div>
           </div>
           <div>
             <div class="edu-detail-label">Advisor</div>
-            <div class="edu-detail-value">Prof. Dongsu Han &middot; INA Lab</div>
+            <div class="edu-detail-value">Prof. Dongsu Han &middot; <a href="https://ina.kaist.ac.kr/" target="_blank" rel="noopener">INA Lab</a></div>
           </div>
         </div>
       </div>
@@ -176,7 +181,7 @@
         <div class="edu-details">
           <div>
             <div class="edu-detail-label">Degree</div>
-            <div class="edu-detail-value"><strong>B.S. in Computer Science</strong><br>School of Computing</div>
+            <div class="edu-detail-value"><strong>Bachelor of Science in Computer Science</strong><br>School of Computing</div>
           </div>
           <div>
             <div class="edu-detail-label">Double Major</div>
@@ -227,7 +232,7 @@
             <span class="entry-badge current">Ongoing</span>
           </div>
           <div class="entry-title">LLM Inference Optimization &amp; Agentic AI Systems</div>
-          <div class="entry-affiliation">INA Lab, KAIST &middot; Prof. Dongsu Han</div>
+          <div class="entry-affiliation"><a href="https://ina.kaist.ac.kr/" target="_blank" rel="noopener">INA Lab</a>, KAIST &middot; Prof. Dongsu Han</div>
           <div class="entry-role">Undergraduate Researcher &rarr; Incoming M.S. Student (Aug 2026)</div>
           <div class="entry-desc">
             Working on system-level optimization for agentic AI pipelines.
