@@ -57,7 +57,9 @@
     .section-title { font-family: var(--serif); font-size: 1.9rem; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 32px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
 
     .edu-main { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 22px 24px 20px; }
-    .edu-main-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .edu-main-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: nowrap; gap: 16px; margin-bottom: 16px; }
+    .edu-main-header > div:first-child { flex: 1 1 auto; min-width: 0; }
+    .edu-date { flex: 0 0 auto; }
     .edu-school { font-weight: 700; font-size: 1rem; color: var(--ink); }
     .edu-school-sub { font-size: 0.8rem; color: var(--ink-light); margin-top: 2px; }
     .edu-date { font-size: 0.78rem; color: var(--ink-light); white-space: nowrap; }
@@ -164,7 +166,7 @@
         <div class="edu-details">
           <div>
             <div class="edu-detail-label">Degree</div>
-            <div class="edu-detail-value"><strong>Master of Science in Artificial Intelligence</strong><br>Admitted &middot; entering Aug 2026</div>
+            <div class="edu-detail-value"><strong>M.S. in Artificial Intelligence</strong><br>Admitted &middot; entering Aug 2026</div>
           </div>
           <div>
             <div class="edu-detail-label">Advisor</div>
@@ -176,14 +178,14 @@
         <div class="edu-main-header">
           <div>
             <div class="edu-school">Korea Advanced Institute of Science and Technology (KAIST)</div>
-            <div class="edu-school-sub">School of Computing &middot; Daejeon, South Korea</div>
+            <div class="edu-school-sub"><a href="https://cs.kaist.ac.kr/" target="_blank" rel="noopener">School of Computing</a> &middot; Daejeon, South Korea</div>
           </div>
           <div class="edu-date">Mar 2020 &ndash; Aug 2026 (expected)</div>
         </div>
         <div class="edu-details">
           <div>
             <div class="edu-detail-label">Degree</div>
-            <div class="edu-detail-value"><strong>Bachelor of Science in Computer Science</strong></div>
+            <div class="edu-detail-value"><strong>B.S. in Computer Science</strong></div>
           </div>
           <div>
             <div class="edu-detail-label">Double Major</div>
